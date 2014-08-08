@@ -1,8 +1,11 @@
-BIN=astyle-r2
-CXX=g++
+DESTDIR?=
+PREFIX=/usr
 
 all:
-	$(CXX) -o $(BIN) *.cpp
+	cd src ; $(MAKE)
 
 clean:
-	rm -f $(BIN)
+	cd src ; $(MAKE) clean
+
+install:
+	cp -f src/astyle-r2 ${DESTDIR}/${PREFIX}/bin
